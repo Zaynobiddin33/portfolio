@@ -1,0 +1,545 @@
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio | ZAYNOBIDDIN</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@900&display=swap');
+
+
+        body{
+            background-color: white;
+            /* background-image: url(cell.jpg); */
+            background-size: 40%;
+            justify-content: center;
+            align-items: center;
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .tree{
+            overflow: hidden;
+            position: sticky;
+            top: 2px;
+            /* background-color: rgb(235, 235, 235); */
+            background-color: black;
+            width: auto;
+            height: 5vw;
+            margin-bottom: 80px;
+            border-radius: 1vw;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 1;
+            border: 2px solid white;
+
+        }
+        .tree .link{
+            text-align: center;
+            width: 7vw;
+            top: 10%;
+            height:2.5vw;
+            background-color: rgb(235, 235, 235);
+            border-radius: 1vw;
+            box-shadow: none;
+            outline: none;
+            border: none;
+            margin: 1%;
+            margin-top: 1.3%;
+            border: 1px solid white;
+            font-size: 1vw;
+        }
+        .tree .link a{
+            height: 100%;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .link:hover{
+            background-color: rgb(191, 255, 0);
+            border:2px solid black;
+            transition: 0.5s;
+            /* box-shadow: 0px 9px 10px 3px rgb(175, 175, 175); */
+        }
+        .link:hover a{
+            color: black;
+        }
+        .main-box{
+            position:fixed;
+            display: flex;
+            top: 6vw;
+            justify-content: center;
+            background-image: url('{%static "assets/cell.jpg" %}');
+            background-size: 40%;
+            width: 99% ;
+            height: 110%;
+            /* border-radius: 20px; */
+            align-items: bottom;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .main-box img{
+            z-index: 2;
+            margin-top: 0vw;
+            object-fit: scale-down;
+        }
+
+        @keyframes animate{
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(-3580px);
+            }
+        }
+        .main-box h1{
+            white-space: nowrap;
+            position: relative;
+            position: absolute;
+            top: 100px;
+            font-size:220px;
+            z-index: 1;
+            font-family: 'Times New Roman', Times, serif;
+            animation: animate 10s ease-in-out infinite;
+            
+        }
+        .main-box .ghost{
+            z-index: 3;
+            -webkit-text-stroke:2px white ;
+            color: transparent;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .info{
+
+            position: relative;
+            margin-top:0;
+            /* background-image: url(cell.jpg); */
+            background-color: black;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            width: 100%;
+            height: 600px;
+            top: 800px;
+            z-index: 3;
+            /* box-shadow: 4px 4px 40px 40px rgb(173, 173, 173); */
+        }
+
+        .info .about {
+            position: relative;
+            top: 8%;
+            width: 50%;
+            height: 1%;
+        }
+        .info .about h1{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin-top: 6%;
+            margin-left: 10%;
+            color: white;
+            font-size: 5vw;
+        }
+        .info .text{
+            margin-left: 38%;
+            /* background-color: brown; */
+            display: inline-block;
+            width: 50%;
+            height: 10%;
+        }
+        .info .text p{
+            position: absolute;
+            margin-top: 1.5%;
+            width: 60%;
+            color: white;
+            font-size: 2vw;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+        }
+        .badass{
+            background-color: white;
+            width: auto;
+            position: relative;
+            top: 500px;
+            height: 100vw;
+            z-index: 5;
+            justify-content: center;
+        }
+
+        .badass .contain{
+            position: relative;
+            top: 3vw;
+            font-family: 'Roboto', sans-serif;
+            width: 90%;
+            margin-left: 5%;
+            height: 4vw;
+            border:2px solid black;
+            border-radius: 1vw;
+            background-color: rgb(191, 255, 0);
+            z-index: 9;
+        }
+        @keyframes animat{
+            from{
+                transform: translateY(0);
+            }
+            to{
+                transform: translateY(-5px);
+            }
+        }
+        .badass .contain h1{
+            text-align: center;
+            font-size: 2vw;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: animat 0.5s ease-in-out infinite;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .badass .container{
+            position: sticky;
+            margin-top: 4%;
+            top: 0;
+            font-family: 'Roboto', sans-serif;
+            width: auto;
+            height: 10vw;
+            border-top:1px solid transparent;
+            border-bottom:1px solid black;
+            background-color: white;
+            z-index: 5;
+        }
+        .badass .container h1{
+            margin-top: 4vw;
+            font-size: 5vw;
+            text-align: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 400;
+        }
+        .images{
+            display: inline-block;
+            justify-content: center;
+            width: auto;
+            background-color: white;
+            /* border: 2px solid black; */
+            width: 100%;
+        }
+        .images .data{
+            height: 5vw;
+            width: auto;
+            border-bottom: 1px solid black;
+            justify-content: center;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .txt{
+            background-color: transparent;
+            display: inline-block;
+            width: 45%;
+            height: 100%;
+            padding-left: 10%;
+        }
+        .btn{
+            background-color: transparent;
+            display: inline-block;
+            position: relative;
+            width: 40%;
+            top: -34%;
+            height: 100%;
+            left: 25%;
+        }
+        .images .data h1{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 400;
+            font-size: 2vw;
+            padding-bottom: 1vw;
+        }
+        .images .data button{
+            background-color: transparent;
+            position: relative;
+            width: 12vw;
+            height: 1.8vw;
+            top: 1.2vw;
+            border-radius: 10px;
+            border: 1px solid black;
+            font-size: 1vw;
+        }
+        .data:hover{
+            background-color: black;
+            color: white;
+            transition: 1s;
+        }
+        .data:hover .a{
+            border:1px solid white;
+            color: white;
+        }
+        .chat{
+            position: relative;
+            justify-content: right;
+            text-align: right;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 3vw;
+            background-image: url("{%static 'assets/cell.jpg'%}");
+            background-size: 40%;
+            filter: blur(0);
+            width: auto;
+            height: 700px;
+            z-index: 6;
+            overflow: hidden;
+        }
+        #followButton{
+            position: absolute;
+            cursor: pointer;
+            top: 40%;
+            left: 10%;
+            transition:700ms;
+
+        }
+        #followButton button{
+            width: 400px;
+            height: 70px;
+            /* background-color: black; */
+            background-image: url('{%static "assets/temp.svg"%}');
+            background-size: 70%;
+            color: black;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 25px;
+            font-weight: 600;
+            
+        }
+        #followButton button:hover{
+            box-shadow: 0px 0px 15px 4px rgb(236, 177, 177);
+        }
+
+        .chat h1{
+            margin-top: 0;
+            padding-top: 50px;
+            padding-right: 5vw;
+        }
+        .local{
+            position: relative;
+            background-color: white;
+            height: 50vw;
+            z-index: 8;
+        }
+        .text2{
+            position: relative;
+            /* border: 1px solid black; */
+            justify-content: center;
+            text-align: center;
+            /* margin-top: 200px; */
+            top: 5vw;
+        }
+
+        .text2 h1{
+            white-space: nowrap;
+            display: inline-block;
+            /* padding-top: 6%; */
+            font-size: 4.5vw;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 300;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        .time{
+            position: relative;
+            width: 25vw;
+            height: 15vw;
+            top: 2.5vw;
+            margin-left: 21.5%;
+            border-radius: 1.3vw;
+            border: 1px solid black;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .time .our{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            white-space: nowrap;
+            font-size: 1.4vw;
+            font-weight: 200;
+        }
+        .local-time{
+            position: relative;
+            display: inline;
+            color: white;
+            /* right: 22%; */
+            font-size: 3vw;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        #real-time-clock{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 3.5vw;
+            color: white;
+        }
+        .collect{
+            padding-top: 7%;
+            background-color: black;
+            height: 100%;
+        }
+        .media{
+            position: relative;
+            width: 25vw;
+            height: 15vw;
+            left: 54%;
+            border:1px solid black;
+            top: -12.6vw;
+            border-radius: 1.3vw;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .media button{
+            width: 25vw;
+            height: 11.5vw;
+            background-color: black;
+            color: white;
+            border: none;
+            border-top: 1px solid black;
+            border-bottom-left-radius: 1.3vw;
+            border-bottom-right-radius: 1.3vw;
+            margin-top:0;
+            font-size: 1.5vw;
+
+        }
+        .media button:hover{
+            background-color: rgb(191, 255, 0);
+            color: black;
+            transition: 0.5s;
+        }
+        .media h1{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 200;
+            font-size: 1.4vw;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="tree">
+        <a href="https://www.instagram.com/zaynobiddinshaxobiddinov/"><button class="link"> Instagram</button></a>
+        <a href="https://t.me/zaynobiddin_shakhabiddinov"><button class="link"> Telegram</button></a>
+        <a href="https://twitter.com/Zaynob1ddin"><button class="link"> Twitter</button></a>
+        <a href="https://zaynobiddinshaxobiddinov9999@gmail.com"><button class="link"> E-mail</button></a>
+        <a href="https://github.com/Zaynobiddin33"><button class="link"> Github</button></a>
+        <a href="https://www.facebook.com/zaynobiddin.shaxobiddinov"><button class="link"> Facebook</button></a>
+    </div>
+
+    <div class="main-box">
+        <img src="{%static 'assets/man.png'%}" alt="">
+        <h1>ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV</h1>
+        <h1 class="ghost">ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV</h1>
+    </div>
+
+    <div class="info">
+        <div class="about">
+            <h1>ABOUT ME:</h1>
+        </div>
+        <div class="text">
+            <p>
+                My fascination with the world of computers and technology traces back to an even earlier age. When I was merely three years old, my father, a graphic designer , introduced a computer into our home. The moment I laid eyes on that computer, an unspoken connection was formed. Despite my tender age, my father began teaching me the intricacies of this magical machine, and within a few months, I was navigating it with ease. This early exposure marked the genesis of my love affair with computers and set the stage for my future pursuit of a Computer Science major.
+            </p>
+        </div>
+        <div class="badass">
+            <div class="contain">
+                <h1> SUPER BADASS 🔥 SUPER COOL 🔥 SUPER COOL 🔥 SUPER COOL 🔥 SUPER COOL 🔥 SUPER COOL 🔥 COOL 🔥 BADASS 🔥 BADASS </h1>
+            </div>
+            <div class="container">
+                <h1>MY PROJECTS↓</h1>
+            </div>
+            <div class="images">
+                {% for project in projects%}
+                <div class="data">
+                    <div class="txt">
+                        <h1>
+                            {{project.name}}
+                        </h1>
+                    </div>
+                    <div class="btn">
+                        <a href="{{project.url}}"><button class="a">VIEW DETAILS</button></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="chat">
+                <h1>LEAVE <br> A MESSAGE <br> VIA <br> PUSHING THE <br> BUTTON</h1>
+                <div id="followButton">
+                    <a href="form"><button>LEAVE A MESSAGE</button></a>
+                </div>
+            </div>
+
+            <div class="local">
+                <div class="text2">
+                    <h1>ZAYNOBIDDIN SHOXOBIDDINOV</h1>
+                </div>
+                <div class="time">
+                    <h1 class="our">OUR LOCAL TIME IN UZBEKISTAN</h1>
+                    <div class="collect">
+                        <h1 class="local-time">LOCAL TIME </h1>
+                        <div id="real-time-clock"></div>
+                    </div>
+                </div>
+                <div class="media">
+                    <h1>GET IN TOUCH</h1>
+                    <a href="urls"><button>👉🏻MY SOCIAL MEDIAS</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const followButton = document.getElementById('followButton');
+    const chatContainer = document.querySelector('.chat');
+
+    function updateButtonPosition(e) {
+        const rect = chatContainer.getBoundingClientRect();
+        const maxX = rect.width - followButton.offsetWidth;
+        const maxY = rect.height - followButton.offsetHeight;
+
+        let newX = e.clientX - rect.left - followButton.offsetWidth / 2;
+        let newY = e.clientY - rect.top - followButton.offsetHeight / 2;
+
+        newX = Math.max(0, Math.min(newX, maxX));
+        newY = Math.max(0, Math.min(newY, maxY));
+
+        followButton.style.left = `${newX}px`;
+        followButton.style.top = `${newY}px`;
+    }
+
+    function handleMouseMove(e) {
+        updateButtonPosition(e);
+    }
+
+    chatContainer.addEventListener('mousemove', handleMouseMove);
+    </script>
+        <script>
+            // Function to update the real-time clock
+            function updateRealTimeClock() {
+                const currentTime = new Date();
+                const hours = currentTime.getHours();
+                const minutes = currentTime.getMinutes();
+                const seconds = currentTime.getSeconds();
+    
+                const formattedTime = `${formatTwoDigits(hours)}:${formatTwoDigits(minutes)}:${formatTwoDigits(seconds)}`;
+    
+                // Update the content of the container with the formatted time
+                document.getElementById('real-time-clock').textContent = formattedTime;
+            }
+    
+            // Function to format single digits to two digits (e.g., 9 becomes 09)
+            function formatTwoDigits(value) {
+                return value < 10 ? `0${value}` : value;
+            }
+    
+            // Update the real-time clock initially
+            updateRealTimeClock();
+    
+            // Update the real-time clock every second
+            setInterval(updateRealTimeClock, 1000);
+        </script>
+</body>
+</html>

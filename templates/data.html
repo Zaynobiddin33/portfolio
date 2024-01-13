@@ -9,13 +9,13 @@
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@900&display=swap');
 
-
         body{
             background-color: white;
             /* background-image: url(cell.jpg); */
             background-size: 40%;
             justify-content: center;
             align-items: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         body, html {
             height: 100%;
@@ -24,34 +24,31 @@
         .tree{
             overflow: hidden;
             position: sticky;
-            top: 2px;
+            top: 1vw;
             /* background-color: rgb(235, 235, 235); */
             background-color: black;
-            width: auto;
-            height: 5vw;
-            margin-bottom: 80px;
-            border-radius: 1vw;
+            margin-left: 1%;
+            width: 98%;
+            height: 4vw;
+            margin-bottom: 2vw;
             justify-content: center;
             align-items: center;
             text-align: center;
             z-index: 1;
-            border: 2px solid white;
 
         }
         .tree .link{
             text-align: center;
-            width: 7vw;
+            /* width: 3vw; */
             top: 10%;
-            height:2.5vw;
-            background-color: rgb(235, 235, 235);
-            border-radius: 1vw;
+            height:4vw;
+            background-color: transparent;
             box-shadow: none;
             outline: none;
             border: none;
-            margin: 1%;
-            margin-top: 1.3%;
-            border: 1px solid white;
-            font-size: 1vw;
+            margin-right: 1%;
+            font-size: 1.3vw;
+            color: white;
         }
         .tree .link a{
             height: 100%;
@@ -60,9 +57,9 @@
             font-size: 20px;
         }
         .link:hover{
-            background-color: rgb(191, 255, 0);
-            border:2px solid black;
+            background-color: white;
             transition: 0.5s;
+            color: black;
             /* box-shadow: 0px 9px 10px 3px rgb(175, 175, 175); */
         }
         .link:hover a{
@@ -73,13 +70,15 @@
             display: flex;
             top: 6vw;
             justify-content: center;
-            background-image: url('{%static "assets/cell.jpg" %}');
-            background-size: 40%;
+            background-image: url('{%static "assets/cell3.jpg" %}');
+            background-size: 150%;
             width: 99% ;
+            border: 1px solid black;
             height: 110%;
             /* border-radius: 20px; */
             align-items: bottom;
             overflow: hidden;
+            margin-left: 0.4vw;
             z-index: 1;
         }
 
@@ -121,8 +120,6 @@
             margin-top:0;
             /* background-image: url(cell.jpg); */
             background-color: black;
-            border-top-right-radius: 20px;
-            border-top-left-radius: 20px;
             width: 100%;
             height: 600px;
             top: 800px;
@@ -142,6 +139,7 @@
             margin-left: 10%;
             color: white;
             font-size: 5vw;
+            font-weight: 200;
         }
         .info .text{
             margin-left: 38%;
@@ -198,14 +196,13 @@
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         .badass .container{
-            position: sticky;
+            position: relative;
             margin-top: 4%;
-            top: 0;
+            top: -1vw;
             font-family: 'Roboto', sans-serif;
             width: auto;
             height: 10vw;
             border-top:1px solid transparent;
-            border-bottom:1px solid black;
             background-color: white;
             z-index: 5;
         }
@@ -285,7 +282,7 @@
             filter: blur(0);
             width: auto;
             height: 700px;
-            z-index: 6;
+            z-index: 5;
             overflow: hidden;
         }
         #followButton{
@@ -342,7 +339,7 @@
             font-weight: 300;
             border: 1px solid black;
             padding: 20px;
-            border-radius: 25px;
+            border-radius: 1.3vw;
         }
         .time{
             position: relative;
@@ -416,6 +413,59 @@
             font-weight: 200;
             font-size: 1.4vw;
         }
+        .thank{
+            display: grid;
+            background-color: black;
+            place-items: center;
+            width: 100%;
+            height: 30vw;
+            color: rgb(255, 174, 0);
+            text-align: center;
+            overflow: hidden;
+        }
+        @keyframes anim{
+            0%{
+                /* font-size: 3vw; */
+            }
+            10%{
+                font-family: sans-serif;
+            }
+            20%{
+                font-family:'Times New Roman', Times, serif ;
+            }
+            30%{
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            40%{
+                font-family: Arial, Helvetica, sans-serif ;
+            }
+            50%{
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+            }
+            60%{
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+            }
+            7%{
+                font-family:Verdana, Geneva, Tahoma, sans-serif ;
+            }
+            80%{
+                font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+            }
+            90%{
+                font-family: monospace;
+            }
+            100%{
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+            }
+
+        }
+        .thank h1{
+            border: 1px solid white;
+            white-space: nowrap;
+            padding: 0;
+            font-size: 3.4vw;
+            animation: anim 1s ease infinite;
+    }
         
     </style>
 </head>
@@ -452,7 +502,7 @@
                 <h1>MY PROJECTS↓</h1>
             </div>
             <div class="images">
-                {% for project in projects%}
+                {% for project in projects %}
                 <div class="data">
                     <div class="txt">
                         <h1>
@@ -487,9 +537,13 @@
                     <h1>GET IN TOUCH</h1>
                     <a href="urls"><button>👉🏻MY SOCIAL MEDIAS</button></a>
                 </div>
+                <div class="thank">
+                    <h1>Thanks for checking my portfolio</h1>
+                </div>
             </div>
         </div>
     </div>
+
 
     <script>
     const followButton = document.getElementById('followButton');

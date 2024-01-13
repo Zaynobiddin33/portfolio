@@ -16,14 +16,15 @@ def main(request):
     return render(request, 'data.html', context)
 
 def form(request):
-    name = request.POST['name']
-    email = request.POST['email']
-    text = request.POST['text']
-    Message.objects.create(
-        name = name,
-        email = email,
-        text = text
-    )
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        text = request.POST['text']
+        Message.objects.create(
+            name = name,
+            email = email,
+            text = text
+        )
     return render(request, 'new.html')
 
 def mymedia(request):

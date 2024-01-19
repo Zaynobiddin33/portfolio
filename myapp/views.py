@@ -32,8 +32,8 @@ def mymedia(request):
 
 def dash(request):
     medias = Mymedia.objects.all().count()
-    contacts = Mymedia.objects.all().count()
-    projects = Mymedia.objects.all().count()
+    contacts = Message.objects.all().count()
+    projects = Projects.objects.all().count()
     
     context = {
         'medias':medias,

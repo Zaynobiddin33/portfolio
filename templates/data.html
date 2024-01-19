@@ -1,429 +1,43 @@
 {%load static%}
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
 <head>
+
+    <!-- META DATA -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Portfolio | ZAYNOBIDDIN</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sash – Bootstrap 5  Admin & Dashboard Template">
+    <meta name="author" content="Spruko Technologies Private Limited">
+    <meta name="keywords"
+        content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets2/images/brand/favicon.ico' %}">
+
+    <!-- TITLE -->
+    <title>PORTFOLIO | ZAYNOBIDDIN</title>
+
+    <!-- BOOTSTRAP CSS -->
+    <link id="style" href="{% static 'assets2/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- STYLE CSS -->
+    <link href="{% static 'assets2/css/style.css' %}" rel="stylesheet">
+
+    <!-- Plugins CSS -->
+    <link href="{% static 'assets2/css/plugins.css' %}" rel="stylesheet">
+
+    <!--- FONT-ICONS CSS -->
+    <link href="{% static 'assets2/css/icons.css' %}" rel="stylesheet">
+
+    <!-- INTERNAL Switcher css -->
+    <link href="{% static 'assets2/switcher/css/switcher.css' %}" rel="stylesheet">
+    <link href="{% static 'assets2/switcher/demo.css' %}" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@900&display=swap');
-
-        body{
-            background-color: white;
-            /* background-image: url(cell.jpg); */
-            background-size: 40%;
-            justify-content: center;
-            align-items: center;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        body, html {
-            height: 100%;
-            margin: 0;
-        }
-        .tree{
-            overflow: hidden;
-            position: sticky;
-            top: 1vw;
-            /* background-color: rgb(235, 235, 235); */
-            background-color: black;
-            margin-left: 1%;
-            width: 98%;
-            height: 4vw;
-            margin-bottom: 2vw;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 1;
-
-        }
-        .tree .link{
-            text-align: center;
-            /* width: 3vw; */
-            top: 10%;
-            height:4vw;
-            background-color: transparent;
-            box-shadow: none;
-            outline: none;
-            border: none;
-            margin-right: 1%;
-            font-size: 1.3vw;
-            color: white;
-        }
-        .tree .link a{
-            height: 100%;
-            color: black;
-            text-decoration: none;
-            font-size: 20px;
-        }
-        .link:hover{
-            background-color: white;
-            transition: 0.5s;
-            color: black;
-            /* box-shadow: 0px 9px 10px 3px rgb(175, 175, 175); */
-        }
-        .link:hover a{
-            color: black;
-        }
-        .main-box{
-            position:fixed;
-            display: flex;
-            top: 6vw;
-            justify-content: center;
-            background-image: url('{%static "assets/cell3.jpg" %}');
-            background-size: 150%;
-            width: 99% ;
-            border: 1px solid black;
-            height: 110%;
-            /* border-radius: 20px; */
-            align-items: bottom;
-            overflow: hidden;
-            margin-left: 0.4vw;
-            z-index: 1;
-        }
-
-        .main-box img{
-            z-index: 2;
-            margin-top: 0vw;
-            object-fit: scale-down;
-        }
-
-        @keyframes animate{
-            from{
-                transform: translateX(0);
-            }
-            to{
-                transform: translateX(-3580px);
-            }
-        }
-        .main-box h1{
-            white-space: nowrap;
-            position: relative;
-            position: absolute;
-            top: 100px;
-            font-size:220px;
-            z-index: 1;
-            font-family: 'Times New Roman', Times, serif;
-            animation: animate 10s ease-in-out infinite;
-            
-        }
-        .main-box .ghost{
-            z-index: 3;
-            -webkit-text-stroke:2px white ;
-            color: transparent;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .info{
-
-            position: relative;
-            margin-top:0;
-            /* background-image: url(cell.jpg); */
-            background-color: black;
-            width: 100%;
-            height: 600px;
-            top: 800px;
-            z-index: 3;
-            /* box-shadow: 4px 4px 40px 40px rgb(173, 173, 173); */
-        }
-
-        .info .about {
-            position: relative;
-            top: 8%;
-            width: 50%;
-            height: 1%;
-        }
-        .info .about h1{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin-top: 6%;
-            margin-left: 10%;
-            color: white;
-            font-size: 5vw;
-            font-weight: 200;
-        }
-        .info .text{
-            margin-left: 38%;
-            /* background-color: brown; */
-            display: inline-block;
-            width: 50%;
-            height: 10%;
-        }
-        .info .text p{
-            position: absolute;
-            margin-top: 1.5%;
-            width: 60%;
-            color: white;
-            font-size: 2vw;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            overflow: hidden;
-        }
-        .badass{
-            background-color: white;
-            width: auto;
-            position: relative;
-            top: 500px;
-            height: 100vw;
-            z-index: 5;
-            justify-content: center;
-        }
-
-        .badass .contain{
-            position: relative;
-            top: 3vw;
-            font-family: 'Roboto', sans-serif;
-            width: 90%;
-            margin-left: 5%;
-            height: 4vw;
-            border:2px solid black;
-            border-radius: 1vw;
-            background-color: rgb(191, 255, 0);
-            z-index: 9;
-        }
-        @keyframes animat{
-            from{
-                transform: translateY(0);
-            }
-            to{
-                transform: translateY(-5px);
-            }
-        }
-        .badass .contain h1{
-            text-align: center;
-            font-size: 2vw;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: animat 0.5s ease-in-out infinite;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        .badass .container{
-            position: relative;
-            margin-top: 4%;
-            top: -1vw;
-            font-family: 'Roboto', sans-serif;
-            width: auto;
-            height: 10vw;
-            border-top:1px solid transparent;
-            background-color: white;
-            z-index: 5;
-        }
-        .badass .container h1{
-            margin-top: 4vw;
-            font-size: 5vw;
-            text-align: center;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 400;
-        }
-        .images{
-            display: inline-block;
-            justify-content: center;
-            width: auto;
-            background-color: white;
-            /* border: 2px solid black; */
-            width: 100%;
-        }
-        .images .data{
-            height: 5vw;
-            width: auto;
-            border-bottom: 1px solid black;
-            justify-content: center;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .txt{
-            background-color: transparent;
-            display: inline-block;
-            width: 45%;
-            height: 100%;
-            padding-left: 10%;
-        }
-        .btn{
-            background-color: transparent;
-            display: inline-block;
-            position: relative;
-            width: 40%;
-            top: -34%;
-            height: 100%;
-            left: 25%;
-        }
-        .images .data h1{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 400;
-            font-size: 2vw;
-            padding-bottom: 1vw;
-        }
-        .images .data button{
-            background-color: transparent;
-            position: relative;
-            width: 12vw;
-            height: 1.8vw;
-            top: 1.2vw;
-            border-radius: 10px;
-            border: 1px solid black;
-            font-size: 1vw;
-        }
-        .data:hover{
-            background-color: black;
-            color: white;
-            transition: 1s;
-        }
-        .data:hover .a{
-            border:1px solid white;
-            color: white;
-        }
-        .chat{
-            position: relative;
-            justify-content: right;
-            text-align: right;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-size: 3vw;
-            background-image: url("{%static 'assets/cell.jpg'%}");
-            background-size: 40%;
-            filter: blur(0);
-            width: auto;
-            height: 700px;
-            z-index: 5;
-            overflow: hidden;
-        }
-        #followButton{
-            position: absolute;
-            cursor: pointer;
-            top: 40%;
-            left: 10%;
-            transition:700ms;
-
-        }
-        #followButton button{
-            width: 400px;
-            height: 70px;
-            /* background-color: black; */
-            background-image: url('{%static "assets/temp.svg"%}');
-            background-size: 70%;
-            color: black;
-            border: 1px solid black;
-            border-radius: 10px;
-            font-size: 25px;
-            font-weight: 600;
-            
-        }
-        #followButton button:hover{
-            box-shadow: 0px 0px 15px 4px rgb(236, 177, 177);
-        }
-
-        .chat h1{
-            margin-top: 0;
-            padding-top: 50px;
-            padding-right: 5vw;
-        }
-        .local{
-            position: relative;
-            background-color: white;
-            height: 50vw;
-            z-index: 8;
-        }
-        .text2{
-            position: relative;
-            /* border: 1px solid black; */
-            justify-content: center;
-            text-align: center;
-            /* margin-top: 200px; */
-            top: 5vw;
-        }
-
-        .text2 h1{
-            white-space: nowrap;
-            display: inline-block;
-            /* padding-top: 6%; */
-            font-size: 4.5vw;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 300;
-            border: 1px solid black;
-            padding: 20px;
-            border-radius: 1.3vw;
-        }
-        .time{
-            position: relative;
-            width: 25vw;
-            height: 15vw;
-            top: 2.5vw;
-            margin-left: 21.5%;
-            border-radius: 1.3vw;
-            border: 1px solid black;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
-        .time .our{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            white-space: nowrap;
-            font-size: 1.4vw;
-            font-weight: 200;
-        }
-        .local-time{
-            position: relative;
-            display: inline;
-            color: white;
-            /* right: 22%; */
-            font-size: 3vw;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        #real-time-clock{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-size: 3.5vw;
-            color: white;
-        }
-        .collect{
-            padding-top: 7%;
-            background-color: black;
-            height: 100%;
-        }
-        .media{
-            position: relative;
-            width: 25vw;
-            height: 15vw;
-            left: 54%;
-            border:1px solid black;
-            top: -12.6vw;
-            border-radius: 1.3vw;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-        }
-        .media button{
-            width: 25vw;
-            height: 11.5vw;
-            background-color: black;
-            color: white;
-            border: none;
-            border-top: 1px solid black;
-            border-bottom-left-radius: 1.3vw;
-            border-bottom-right-radius: 1.3vw;
-            margin-top:0;
-            font-size: 1.5vw;
-
-        }
-        .media button:hover{
-            background-color: rgb(191, 255, 0);
-            color: black;
-            transition: 0.5s;
-        }
-        .media h1{
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: 200;
-            font-size: 1.4vw;
-        }
-        .thank{
-            display: grid;
-            background-color: black;
-            place-items: center;
-            width: 100%;
-            height: 30vw;
-            color: rgb(255, 174, 0);
-            text-align: center;
-            overflow: hidden;
-        }
-        @keyframes anim{
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        @keyframes fonting{
             0%{
                 /* font-size: 3vw; */
             }
@@ -445,55 +59,576 @@
             60%{
                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
             }
-            7%{
+            70%{
                 font-family:Verdana, Geneva, Tahoma, sans-serif ;
+                font-weight: 100;
             }
             80%{
                 font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+                font-weight: 100;
             }
             90%{
-                font-family: monospace;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 100;
             }
             100%{
                 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+                font-weight: 100;
             }
-
         }
-        .thank h1{
-            border: 1px solid white;
-            white-space: nowrap;
-            padding: 0;
-            font-size: 3.4vw;
-            animation: anim 1s ease infinite;
-    }
-        
+        @keyframes style {
+            0%{
+                filter: contrast(0.4);
+            }
+            10%{
+                filter: invert(0.6);
+            }
+            20%{
+                filter: saturate(0.3);
+            }
+            30%{
+                filter: sepia(1) contrast(0.7);
+            }
+        }
+        body {
+            background-color: rgb(24, 24, 24);
+            margin: 0;
+        }
+
+        .mynv {
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .hello {
+            display: flex;
+            position: fixed;
+            height: 100vw;
+            overflow: hidden;
+            justify-content: center;
+        }
+        .hello #ism{
+            position: absolute;
+            /* position: relative; */
+            z-index: 3;
+            top: 10vw;
+            font-size: 8vw;
+            color: orangered;
+            border: 1px solid orangered;
+            height: fit-content;
+            animation: fonting 1s normal infinite;
+            filter: blur(1px);
+            /* opacity: 70%; */
+        }
+        .hello #ism2{
+            position: absolute;
+            /* position: relative; */
+            z-index: 4;
+            top: 10vw;
+            font-size: 8vw;
+            color: transparent;
+            -webkit-text-stroke: 1px orangered;
+            height: fit-content;
+            animation: fonting 1s normal infinite;
+            filter: blur(1px);
+            /* opacity: 70%; */
+        }
+        .hello #fam{
+            position: absolute;
+            /* position: relative; */
+            z-index: 2;
+            top: 20vw;
+            font-size: 8vw;
+            color: orangered;
+            border: 1px solid orangered;
+            height: fit-content;
+            animation: fonting 1s infinite reverse;
+            filter: blur(1px);
+            /* opacity: 70%; */
+        }
+        .hello #fam2{
+            position: absolute;
+            /* position: relative; */
+            z-index: 4;
+            top: 20vw;
+            font-size: 8vw;
+            color: transparent;
+            -webkit-text-stroke: 2px orangered;
+            height: fit-content;
+            animation: fonting 1s infinite reverse;
+            filter: blur(1px);
+            /* opacity: 70%; */
+        }
+        .hello img{
+            z-index: 3;
+            position: absolute;
+            height: 40vw;
+            width: auto;
+            top: 15.6vw;
+            filter: saturate(0.1);
+            
+            
+        }
+        .hello video{
+            position: absolute;
+            top: -22vw;
+            height: 100vw;
+            filter: invert(1);
+        }
+        .nav-link{
+            color: orangered;
+        }
+        .info1{
+            position: relative;
+            top: 56vw;
+            color: white;
+            border: 1px solid black;
+        }
+        .text-div{
+            border: 2px solid black;
+            color: black;
+            background-color: white;
+            z-index: 3;
+        }
+        .text-div p{
+            font-size: 1.2vw;
+        }
+        .info{
+
+position: relative;
+margin-top:0;
+/* background-image: url(cell.jpg); */
+background-color: black;
+width: 100%;
+height: 600px;
+top: 800px;
+z-index: 3;
+/* box-shadow: 4px 4px 40px 40px rgb(173, 173, 173); */
+}
+
+.info .about {
+position: relative;
+top: 8%;
+width: 50%;
+height: 1%;
+}
+.info .about h1{
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+margin-top: 6%;
+margin-left: 10%;
+color: white;
+font-size: 5vw;
+font-weight: 200;
+}
+.info .text{
+margin-left: 38%;
+/* background-color: brown; */
+display: inline-block;
+width: 50%;
+height: 10%;
+}
+.info .text p{
+position: absolute;
+margin-top: 1.5%;
+width: 60%;
+color: white;
+font-size: 2vw;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+overflow: hidden;
+}
+.badass{
+background-color: white;
+width: auto;
+position: relative;
+top: 53vw;
+border: 1px solid black;
+height: 100vw;
+z-index: 5;
+justify-content: center;
+}
+
+.badass .contain{
+position: relative;
+top: 3vw;
+font-family: 'Roboto', sans-serif;
+width: 90%;
+margin-left: 5%;
+height: 4vw;
+border:2px solid black;
+border-radius: 1vw;
+background-color: rgb(191, 255, 0);
+z-index: 9;
+}
+@keyframes animat{
+from{
+    transform: translateY(0);
+}
+to{
+    transform: translateY(-5px);
+}
+}
+.badass .contain h1{
+    position: relative;
+text-align: center;
+font-size: 2vw;
+white-space: nowrap;
+overflow: hidden;
+top: 1vw;
+animation: animat 0.5s ease-in-out infinite;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.badass .container{
+position: relative;
+margin-top: 4%;
+top: -1vw;
+font-family: 'Roboto', sans-serif;
+width: auto;
+height: 10vw;
+border-top:1px solid transparent;
+background-color: white;
+z-index: 5;
+}
+.badass .container h1{
+margin-top: 4vw;
+font-size: 5vw;
+text-align: center;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-weight: 400;
+}
+.images{
+display: inline-block;
+justify-content: center;
+width: auto;
+background-color: white;
+/* border: 2px solid black; */
+width: 100%;
+}
+.images .data{
+height: 5vw;
+width: auto;
+border-bottom: 1px solid black;
+justify-content: center;
+margin: auto;
+overflow: hidden;
+}
+
+.txt{
+background-color: transparent;
+display: inline-block;
+width: 45%;
+height: 100%;
+padding-left: 10%;
+}
+.btn{
+background-color: transparent;
+display: inline-block;
+position: relative;
+width: 40%;
+top: -34%;
+height: 100%;
+left: 25%;
+}
+.images .data h1{
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-weight: 400;
+font-size: 2vw;
+padding-bottom: 1vw;
+}
+.images .data button{
+background-color: transparent;
+position: relative;
+width: 12vw;
+height: 1.8vw;
+top: 2.5vw;
+border-radius: 10px;
+border: 1px solid black;
+font-size: 1vw;
+}
+.data:hover{
+background-color: black;
+color: white;
+transition: 1s;
+}
+.data:hover .a{
+border:1px solid white;
+color: white;
+}
+.chat{
+position: relative;
+justify-content: right;
+text-align: right;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-size: 3vw;
+background-image: url("{%static 'assets/cell.jpg'%}");
+background-size: 40%;
+filter: blur(0);
+width: auto;
+height: 700px;
+z-index: 5;
+overflow: hidden;
+}
+#followButton{
+position: absolute;
+cursor: pointer;
+top: 40%;
+left: 10%;
+transition:700ms;
+
+}
+#followButton button{
+width: 400px;
+height: 70px;
+/* background-color: black; */
+background-image: url('{%static "assets/temp.svg"%}');
+background-size: 70%;
+color: black;
+border: 1px solid black;
+border-radius: 10px;
+font-size: 25px;
+font-weight: 600;
+
+}
+#followButton button:hover{
+box-shadow: 0px 0px 15px 4px rgb(236, 177, 177);
+}
+
+.chat h1{
+margin-top: 0;
+padding-top: 50px;
+padding-right: 5vw;
+font-size: 5vw;
+}
+.local{
+position: relative;
+background-color: white;
+height: 50vw;
+z-index: 8;
+}
+.text2{
+position: relative;
+/* border: 1px solid black; */
+justify-content: center;
+text-align: center;
+/* margin-top: 200px; */
+top: 5vw;
+}
+
+.text2 h1{
+white-space: nowrap;
+display: inline-block;
+/* padding-top: 6%; */
+font-size: 4.5vw;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-weight: 300;
+border: 1px solid black;
+padding: 20px;
+border-radius: 1.3vw;
+}
+.time{
+position: relative;
+width: 25vw;
+height: 15vw;
+top: 2.4vw;
+margin-left: 21.5%;
+border-radius: 1.3vw;
+border: 1px solid black;
+justify-content: center;
+text-align: center;
+overflow: hidden;
+}
+.time .our{
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+white-space: nowrap;
+font-size: 1.4vw;
+font-weight: 200;
+position: relative;
+top: 0.6vw;
+}
+.local-time{
+position: relative;
+display: inline;
+color: white;
+/* right: 22%; */
+font-size: 3vw;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#real-time-clock{
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-size: 3.5vw;
+color: white;
+}
+.collect{
+position: relative;
+padding-top: 7%;
+background-color: black;
+height: 100%;
+top: 0.8vw;
+}
+.media{
+display: flex;
+position: relative;
+width: 25vw;
+height: 15vw;
+left: 54%;
+border:1px solid black;
+top: -12.6vw;
+border-radius: 1.3vw;
+justify-content: center;
+align-items: center;
+text-align: center;
+overflow: hidden;
+}
+.media button{
+position: relative;
+width: 28vw;
+height: 11.5vw;
+background-color: black;
+color: white;
+border: none;
+border-top: 1px solid black;
+border-bottom-left-radius: 1.3vw;
+border-bottom-right-radius: 1.3vw;
+margin-top:0;
+font-size: 1.5vw;
+top: 1.7vw;
+right: 4.4vw;
+
+}
+.media button:hover{
+background-color: rgb(191, 255, 0);
+color: black;
+transition: 0.5s;
+}
+.media h1{
+position: relative;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-weight: 200;
+font-size: 1.4vw;
+top: -5.6vw;
+left: 13.5vw;
+white-space: nowrap;
+}
+.thank{
+display: grid;
+background-color: black;
+place-items: center;
+width: 100%;
+height: 30vw;
+color: rgb(255, 174, 0);
+text-align: center;
+overflow: hidden;
+}
+@keyframes anim{
+0%{
+    /* font-size: 3vw; */
+}
+10%{
+    font-family: sans-serif;
+}
+20%{
+    font-family:'Times New Roman', Times, serif ;
+}
+30%{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+40%{
+    font-family: Arial, Helvetica, sans-serif ;
+}
+50%{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+60%{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+7%{
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+80%{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+}
+90%{
+    font-family: monospace;
+}
+100%{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+}
+
+}
+.thank h1{
+border: 1px solid white;
+white-space: nowrap;
+padding: 0;
+font-size: 3.4vw;
+animation: anim 1s ease infinite;
+}
+
     </style>
+
 </head>
+
 <body>
-    <div class="tree">
-        <a href="https://www.instagram.com/zaynobiddinshaxobiddinov/"><button class="link"> Instagram</button></a>
-        <a href="https://t.me/zaynobiddin_shakhabiddinov"><button class="link"> Telegram</button></a>
-        <a href="https://twitter.com/Zaynob1ddin"><button class="link"> Twitter</button></a>
-        <a href="https://zaynobiddinshaxobiddinov9999@gmail.com"><button class="link"> E-mail</button></a>
-        <a href="https://github.com/Zaynobiddin33"><button class="link"> Github</button></a>
-        <a href="https://www.facebook.com/zaynobiddin.shaxobiddinov"><button class="link"> Facebook</button></a>
-    </div>
-
-    <div class="main-box">
-        <img src="{%static 'assets/man.png'%}" alt="">
-        <h1>ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV</h1>
-        <h1 class="ghost">ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV ZAYNOBIDDIN SHAXOBIDDINOV</h1>
-    </div>
-
-    <div class="info">
-        <div class="about">
-            <h1>ABOUT ME:</h1>
+    <nav class="d-flex justify-content-center mynv">
+        <div class="card-body">
+            <ul class="nav nav-pills nav-pills-circle justify-content-center" id="tabs_2" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab1" data-bs-toggle="tab" href="#tabs_2_1" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="nav-link-icon d-block"><i class="fa fa-github"></i> Github</span>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab2" data-bs-toggle="tab" href="#tabs_2_2" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="nav-link-icon d-block"><i class="fa fa-instagram"></i> Instagram </span>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab4" data-bs-toggle="tab" href="#tabs_2_3" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="nav-link-icon d-block"><i class="fa fa-linkedin"></i> LinkedIn</span>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab5" data-bs-toggle="tab" href="#tabs_2_4" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="nav-link-icon d-block"><i class="fa fa-telegram"></i> Telegram </span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="text">
-            <p>
-                My fascination with the world of computers and technology traces back to an even earlier age. When I was merely three years old, my father, a graphic designer , introduced a computer into our home. The moment I laid eyes on that computer, an unspoken connection was formed. Despite my tender age, my father began teaching me the intricacies of this magical machine, and within a few months, I was navigating it with ease. This early exposure marked the genesis of my love affair with computers and set the stage for my future pursuit of a Computer Science major.
-            </p>
+    </nav>
+    <div class="col-12 hello">
+        <h1 id="ism">ZAYNOBIDDIN</h1>
+        <h1 id="fam">SHOXOBIDDINOV</h1>
+        <h1 id="ism2">ZAYNOBIDDIN</h1>
+        <h1 id="fam2">SHOXOBIDDINOV</h1>
+        <img src="{% static 'assets/man.png' %}" alt="">
+        <video class="col-12" autoplay muted loop>
+            <source src="{% static 'assets/data.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+    <div class="info1">
+        <div class="">
+            <div class="card text-div ">
+                <div class="card-header ">
+                    <div class="card-title bg">ABOUT ME</div>
+                </div>
+                <div class="card-body scroll">
+                    <!-- content -->
+                    <div class="content vscroll h-400 ps ps--active-y ">
+                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are
+                            going to use a passage of Lorem Ipsum</p>
+                        <p> you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator
+                            on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always
+                            free from repetition, injected humour, or non-characteristic words etc</p>
+                        <p>omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
+                            quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,</p>
+                        <p>adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi
+                            ut aliquid ex ea commodi consequatur</p>
+
+                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 300px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 139px;"></div></div></div>
+                </div>
+            </div>
         </div>
+    </div>
+    <!-- <div class="info"> -->
         <div class="badass">
             <div class="contain">
                 <h1> SUPER BADASS 🔥 SUPER COOL 🔥 SUPER COOL 🔥 SUPER COOL 🔥 SUPER COOL 🔥 SUPER COOL 🔥 COOL 🔥 BADASS 🔥 BADASS </h1>
@@ -523,6 +658,9 @@
             </div>
 
             <div class="local">
+                <!-- <video id="background-video" autoplay loop muted poster="">
+                    <source src="{%static 'assets2/data.mp4'%}" type="video/mp4">
+                  </video> -->
                 <div class="text2">
                     <h1>ZAYNOBIDDIN SHOXOBIDDINOV</h1>
                 </div>
@@ -542,7 +680,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 
 
     <script>
@@ -595,5 +733,5 @@
             // Update the real-time clock every second
             setInterval(updateRealTimeClock, 1000);
         </script>
-</body>
+    </body>
 </html>

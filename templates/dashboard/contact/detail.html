@@ -1,0 +1,64 @@
+{%extends 'dashboard/base.html'%}
+{%load static%}
+
+{%block content%}
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <div class="page-header">
+                            <h1 class="page-title">Message</h1>
+                        </div>
+                        <!-- PAGE-HEADER END -->
+                        
+                        <!-- Row -->
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">From Portfolio</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="email-media">
+                                        <div class="mt-0 d-sm-flex">
+                                            <div class="media-body pt-0">
+                                                <div class="float-md-end d-flex fs-15">
+                                                    <small class="me-3 mt-3 text-muted"></small>
+                                                    <div class="me-3">
+                                                    </div>
+                                                </div>
+                                                <div class="media-title text-dark font-weight-semibold mt-1">{{message.name}}<span class="text-muted font-weight-semibold">( {{message.email}})</span></div>
+                                                
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eamil-body mt-5">
+                                        <p>{{message.text}}</p>
+                                        <br><br>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <form method="POST">
+                                    {%csrf_token%}
+                                    <div class="example">
+                                        <div class="btn-list btn-list-icon">
+                                            <a href="{%url 'list_contact' %}"  class="btn btn-dark"><i class="fe fe-upload me-2"> GO BACK</i></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- End Row -->
+
+                    </div>
+                    <!-- CONTAINER CLOSED -->
+
+                </div>
+            </div>
+            <!--app-content close-->
+
+{%endblock%}

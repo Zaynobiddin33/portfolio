@@ -1,0 +1,64 @@
+{%extends 'dashboard/base.html'%}
+{%load static%}
+
+{%block content%}
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- CONTAINER -->
+                    <div class="main-container container-fluid">
+
+                        <!-- PAGE-HEADER -->
+                        <div class="page-header">
+                            <h1 class="page-title">MY LINKS</h1>
+                        </div>
+                        <!-- PAGE-HEADER END -->
+                        
+                        <!-- Row -->
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-xl-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">List of URLs</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table text-nowrap text-md-nowrap mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>№</th>
+                                                        <th>Name</th>
+                                                        <th>Change</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for media in medias %}
+                                                    <tr>
+                                                        <td>{{forloop.counter}}</td>
+                                                        {% if item.title|length > 30%}
+                                                            <td>{{media.media_name|slice:"30"}}...</td>
+                                                        {%else%}
+                                                            <td>{{media.media_name}}</td>
+                                                        {%endif%}
+                                                        <td><a href="{% url 'update_media' media.id %}" class="btn btn-primary" style="color: white;"><i class="fa fa-arrow-right"></i></a></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Row -->
+
+                    </div>
+                    <!-- CONTAINER CLOSED -->
+
+                </div>
+            </div>
+            <!--app-content close-->
+
+{%endblock%}

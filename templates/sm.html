@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>social media</title>
+    <title>Social medias</title>
 </head>
 <style>
     body{
@@ -34,11 +34,8 @@
     <h1>
         YOU CAN FIND ME ON THESE PLATFORMS
     </h1>
-    <a href="https://www.instagram.com/zaynobiddinshaxobiddinov/"><button class="link"> Instagram</button></a>
-    <a href="https://t.me/zaynobiddin_shakhabiddinov"><button class="link"> Telegram</button></a>
-    <a href="https://twitter.com/Zaynob1ddin"><button class="link"> Twitter</button></a>
-    <a href="https://zaynobiddinshaxobiddinov9999@gmail.com"><button class="link"> E-mail</button></a>
-    <a href="https://github.com/Zaynobiddin33"><button class="link"> Github</button></a>
-    <a href="https://www.facebook.com/zaynobiddin.shaxobiddinov"><button class="link"> Facebook</button></a>
+    {%for media in medias%}
+    <a href="{{media.url}}"><button class="link"> {{media.media_name}}</button></a>
+    {%endfor%}
 </body>
 </html>

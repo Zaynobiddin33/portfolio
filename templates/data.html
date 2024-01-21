@@ -37,6 +37,54 @@
     <link href="{% static 'assets2/switcher/demo.css' %}" rel="stylesheet">
 
     <style>
+        .row{
+            display: flex;
+            justify-content: center;
+            /* text-align: center; */
+            vertical-align: middle;
+        }
+        .col-8, .col-4{
+            background-color: white;
+            padding: 10px;
+            color: black;
+            border-bottom: 1px solid black;
+            
+        }
+        .but{
+            border-radius: 7px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 1px solid black;
+            color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+        .row:hover .col-8{
+            background-color: black;
+            color: white;
+            transition: 0.5s;
+        }
+        .row:hover .col-4{
+            background-color: black;
+            color: white;
+            transition: 0.5s;
+        }
+        .row:hover .but{
+            color: white;
+            border: 1px solid white;
+            transition: 0.5s;
+        }
+        .row h3{
+            margin-left: 5vw
+        }
+    </style>
+
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
         @keyframes fonting{
             0%{
@@ -342,7 +390,7 @@ position: relative;
 width: 12vw;
 height: 1.8vw;
 top: 2.5vw;
-border-radius: 10px;
+border-radius: 0.5vw;
 border: 1px solid black;
 font-size: 1vw;
 }
@@ -572,24 +620,16 @@ animation: anim 1s ease infinite;
     <nav class="d-flex justify-content-center mynv">
         <div class="card-body">
             <ul class="nav nav-pills nav-pills-circle justify-content-center" id="tabs_2" role="tablist">
+                {% for media in medias %}
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab1" data-bs-toggle="tab" href="https://github.com/Zaynobiddin33" role="tab" aria-selected="false" tabindex="-1">
-                        <span class="nav-link-icon d-block"><i class="fa fa-github"></i> Github</span>
+                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab1" data-bs-toggle="tab" href="{{media.url}}" role="tab" aria-selected="false" tabindex="-1">
+                        <span class="nav-link-icon d-block"><i class="fa fa-{{media.media_name.lower}}"></i> {{media.media_name}}</span>
                     </a>
                 </li>
+                {% endfor %}
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab2" data-bs-toggle="tab" href="https://www.instagram.com/zaynobiddinshaxobiddinov/" role="tab" aria-selected="false" tabindex="-1">
-                        <span class="nav-link-icon d-block"><i class="fa fa-instagram"></i> Instagram </span>
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab4" data-bs-toggle="tab" href="https://www.facebook.com/zaynobiddin.shaxobiddinov" role="tab" aria-selected="false" tabindex="-1">
-                        <span class="nav-link-icon d-block"><i class="fa fa-facebook"></i> Facebook</span>
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link border border-danger py-3 px-5 m-2" id="tab5" data-bs-toggle="tab" href="#tabs_2_4" role="tab" aria-selected="false" tabindex="-1">
-                        <span class="nav-link-icon d-block"><i class="fa fa-telegram"></i> Telegram </span>
+                    <a class="nav-link border border-white bg-black py-3 px-5 m-2" id="tab1" data-bs-toggle="tab" href="{%url 'regist_token'%}" role="tab" aria-selected="false" tabindex="-1">
+                        <span style="color: white;" class="nav-link-icon d-block"><i class="fa fa-{{media.media_name.lower}}"></i>Were you invited as an admin</span>
                     </a>
                 </li>
             </ul>
@@ -605,25 +645,7 @@ animation: anim 1s ease infinite;
             <source src="{% static 'assets/data.mp4' %}" type="video/mp4">
         </video>
     </div>
-    <div class="info1">
-        <div class="">
-            <div class="card text-div ">
-                <div class="card-header ">
-                    <div class="card-title bg">ABOUT ME</div>
-                </div>
-                <div class="card-body scroll">
-                    <!-- content -->
-                    <div class="content vscroll h-400 ps ps--active-y " style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-                        <p> <br>There are many variations of passages of Lorem Ipsum available, but the majority <br> have suffered alteration in some form, by injected humour, or randomised words <br> which don't look even slightly believable. If you are
-                            going to use a passage of Lorem Ipsum</p>
-                        <p> you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem <br> Ipsum generators on the Internet tend to repeat predefined chunks as necessary, <br> making this the first true generator
-                            on the Internet. It uses a dictionary of over 200 Latin words, <br> combined with a handful of model sentence structures, to generate Lorem Ipsum which looks <br> reasonable. The generated Lorem Ipsum is therefore always
-                            free from repetition, injected humour, <br> or non-characteristic words etc</p>
-
-                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 300px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 139px;"></div></div></div>
-                </div>
-            </div>
-        </div>
+    <div>
     </div>
     <!-- <div class="info"> -->
         <div class="badass">
@@ -635,14 +657,12 @@ animation: anim 1s ease infinite;
             </div>
             <div class="images">
                 {% for project in projects %}
-                <div class="data">
-                    <div class="txt">
-                        <h1>
-                            {{project.name}}
-                        </h1>
+                <div class="row">
+                    <div class="col-8">
+                        <h3>{{project.name}}</h3>
                     </div>
-                    <div class="btn">
-                        <a href="{{project.url}}"><button class="a">VIEW DETAILS</button></a>
+                    <div class="col-4">
+                        <a class="but" href="{{project.url}}"> View details</a>
                     </div>
                 </div>
                 {% endfor %}
@@ -730,5 +750,7 @@ animation: anim 1s ease infinite;
             // Update the real-time clock every second
             setInterval(updateRealTimeClock, 1000);
         </script>
+
+
     </body>
 </html>

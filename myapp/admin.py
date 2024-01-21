@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Projects)
 admin.site.register(Message)
 admin.site.register(Mymedia)
+admin.site.register(Token)

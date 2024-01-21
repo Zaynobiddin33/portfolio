@@ -1,9 +1,10 @@
 from django.urls import path
 from .views import *
+
 urlpatterns =[
     path('', main),
-    path('form', form),
-    path('urls', mymedia),
+    path('form/', form),
+    path('urls/', mymedia),
     #dashboard
     path('dashboard', dash , name = 'dash'),
     #contact
@@ -20,4 +21,8 @@ urlpatterns =[
     path('projects/update/<int:id>/', update_project, name = 'update_project'),
     path('projects/delete/<int:id>/', delete_project, name = 'delete_project'),
 
+    path('login/', login_user, name='login'),
+    path('adduser', add_user, name='add_admin'),
+    path('first-step', regist_token, name = 'regist_token'),
+    path(f'register', regist, name = 'register')
 ]

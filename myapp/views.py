@@ -1,6 +1,14 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.http import HttpResponse
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
+import secrets
+
+def token_generate(length=32):
+    token = secrets.token_hex(length)
+    return token
+
 
 # Create your views here.
 
@@ -28,17 +36,21 @@ def form(request):
     return render(request, 'new.html')
 
 def mymedia(request):
-    return render(request, 'sm.html')
+    
+    return render(request, 'sm.html', {'medias': Mymedia.objects.all()})
 
+@login_required(login_url='login')
 def dash(request):
     medias = Mymedia.objects.all().count()
     contacts = Message.objects.all().count()
     projects = Projects.objects.all().count()
+    users = User.objects.all().count()
     
     context = {
         'medias':medias,
         'contacts':contacts,
-        'projects':projects
+        'projects':projects,
+        'users': users
     }
     
     return render(request, 'dashboard/index.html', context)
@@ -126,6 +138,65 @@ def update_project(request, id):
     }
     return render(request, 'dashboard/projects/update.html', context)
 
+
 def delete_project(request, id):
    Projects.objects.get(id=id).delete()
    return redirect('projects')
+
+
+
+def login_user(request):
+    login_error = False
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username,  password=password)
+        if user:
+            login(request, user)
+            return redirect('dash')
+        else:
+            login_error = "Incorrect username or password. Please try again."
+    return render(request, 'dashboard/auth/login.html', {"login_error": login_error})
+
+
+
+def add_user(request):
+    token = token_generate()
+    if request.method == "POST":
+        Token.objects.create(
+            token = token
+        )
+    return render(request, 'dashboard/auth/adduser.html', {"token": token})
+
+
+
+def regist(request):
+    error = False
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        if not User.objects.filter(username = username):
+            User.objects.create_user(
+                username=username,
+                password=password
+            )
+            user = authenticate(username = username, password = password)
+            login(request, user)
+            return redirect('dash')
+        else:
+            error = f"the username {username} already exists"
+    return render(request, 'dashboard/auth/register.html', {'error': error})
+
+
+def regist_token(request):
+    error = False
+    if request.method == "POST":
+        data = request.POST['token']
+        if Token.objects.filter(token = data) and Token.objects.get(token = data).is_active == True:
+            selected = Token.objects.get(token = data)
+            selected.is_active = False
+            selected.save()
+            return redirect('register')
+        else:
+            error = 'This token is already used or does not exist'
+    return render(request, 'dashboard/auth/tokenauth.html', {'error': error})

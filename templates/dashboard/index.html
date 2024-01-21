@@ -1,5 +1,8 @@
 {%extends 'dashboard/base.html'%}
 {%load static%}
+{%block title%}
+<title>Dashboard</title>
+{%endblock%}
 {%block css%}
 <style>
     .data{
@@ -10,7 +13,7 @@
     .vid{
         position: absolute;
         width: 1460px;
-        filter: invert(1) blur(10px);
+        filter: invert(1);
         
         
     }
@@ -19,7 +22,7 @@
 {%endblock%}
 {%block content%}
             <!--app-content open-->
-            <div class="main-content app-content mt-0 data" style="overflow: hidden;">
+            <div class="new main-content app-content mt-0 data" style="overflow: hidden;">
                 <video class="vid" autoplay muted loop>
                     <source src="{% static 'assets/data.mp4' %}" type="video/mp4">
                 </video>
@@ -30,7 +33,7 @@
 
                         <!-- PAGE-HEADER -->
                         <div class="page-header">
-                            <h1 class="page-title">Boshqaruv paneli</h1>
+                            <h1 class="page-title" style="color: black;">Boshqaruv paneli</h1>
                         </div>
                         <!-- PAGE-HEADER END -->
 

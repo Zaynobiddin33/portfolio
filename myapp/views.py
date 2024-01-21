@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.http import HttpResponse
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 import secrets
+
 
 def token_generate(length=32):
     token = secrets.token_hex(length)
@@ -33,6 +34,7 @@ def form(request):
             email = email,
             text = text
         )
+        return redirect('main')
     return render(request, 'new.html')
 
 def mymedia(request):
@@ -144,7 +146,7 @@ def delete_project(request, id):
    return redirect('projects')
 
 
-
+#LOGIN
 def login_user(request):
     login_error = False
     if request.method == "POST":
@@ -159,17 +161,18 @@ def login_user(request):
     return render(request, 'dashboard/auth/login.html', {"login_error": login_error})
 
 
-
+#Faqat admindan taklif olganlar registratsiya qila oladi va bu token olish uchun funksiya
 def add_user(request):
     token = token_generate()
     if request.method == "POST":
         Token.objects.create(
             token = token
         )
+        return redirect('dash')
     return render(request, 'dashboard/auth/adduser.html', {"token": token})
 
 
-
+#registratsiya
 def regist(request):
     error = False
     if request.method == 'POST':
@@ -187,7 +190,7 @@ def regist(request):
             error = f"the username {username} already exists"
     return render(request, 'dashboard/auth/register.html', {'error': error})
 
-
+#Token bilan registratsiyadan o'tish
 def regist_token(request):
     error = False
     if request.method == "POST":
@@ -200,3 +203,8 @@ def regist_token(request):
         else:
             error = 'This token is already used or does not exist'
     return render(request, 'dashboard/auth/tokenauth.html', {'error': error})
+
+#LOGOUT
+def logout_user(request):
+    logout(request)
+    return redirect('login')

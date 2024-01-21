@@ -629,7 +629,12 @@ animation: anim 1s ease infinite;
                 {% endfor %}
                 <li class="nav-item" role="presentation">
                     <a class="nav-link border border-white bg-black py-3 px-5 m-2" id="tab1" data-bs-toggle="tab" href="{%url 'regist_token'%}" role="tab" aria-selected="false" tabindex="-1">
-                        <span style="color: white;" class="nav-link-icon d-block"><i class="fa fa-{{media.media_name.lower}}"></i>Were you invited as an admin</span>
+                        <span style="color: white;" class="nav-link-icon d-block"><i class="fa fa-{{media.media_name.lower}}"></i>Were you invited as an admin? REGISTER</span>
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link border border-white bg-black py-3 px-5 m-2" id="tab1" data-bs-toggle="tab" href="{%url 'login'%}" role="tab" aria-selected="false" tabindex="-1">
+                        <span style="color: white;" class="nav-link-icon d-block"><i class="fa fa-{{media.media_name.lower}}"></i>Sign in</span>
                     </a>
                 </li>
             </ul>
@@ -670,7 +675,7 @@ animation: anim 1s ease infinite;
             <div class="chat">
                 <h1>LEAVE <br> A MESSAGE <br> VIA <br> PUSHING THE <br> BUTTON</h1>
                 <div id="followButton">
-                    <a href="form"><button>LEAVE A MESSAGE</button></a>
+                    <a href="{%url 'form'%}"><button>LEAVE A MESSAGE</button></a>
                 </div>
             </div>
 

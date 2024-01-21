@@ -20,5 +20,8 @@ class Message(models.Model):
     sent_time = models.DateTimeField(auto_now_add = True)
 
 class Token(models.Model):
-    token = models.CharField(max_length = 32)
+    token = models.CharField(max_length = 64)
     is_active = models.BooleanField(default = True)
+
+    def __str__(self) -> str:
+        return self.token
